@@ -33,7 +33,7 @@ app.post('/post',(req,res, next) => {
     fs.writeFile(filePath, postContent)
       .then(() => {
         const display = `Post "${postName}" Created !`;
-        const html = new Page(display).getHtml();
+        const html = new Page(display, "#e91e63").getHtml();
         res.send(html);
       })
       .catch((err) => {
@@ -55,10 +55,22 @@ app.get("/duplicate", (req, res, next) => {
 app.get("/post/:title", (req, res, next) => {
   const { title } = req.params;
   const filePath = path.join(__dirname, "posts", `${title}.txt`);
-  fs.readFile(filePath).then((data) => {
+  fs.readFile(filePath)
+  .then((data) => {
     const html = new GetPost(title, data)
     res.send(html.getHtml());
-  });
+  })
+  .catch(()=>{
+    const display = "Post Not Found";
+    const html = new Page(display, "#00bcd4").getHtml();
+    res.send(html);  
+  })
+});
+
+app.use("*",(req, res, next) => {
+    const display = "Page Not Found";
+    const html = new Page(display, "ff9800").getHtml();
+    res.send(html);
 });
 
 app.listen(PORT, () => {
