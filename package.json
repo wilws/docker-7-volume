@@ -1,0 +1,26 @@
+{
+  "name": "docker-7-volume",
+  "version": "1.0.0",
+  "description": "How Volume work in Docker - https://wilsonsdevnotes.blogspot.com/2022/10/docker-7-volume.html ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wilws/docker-7-volume.git"
+  },
+  "author": "Wilson Wwong Wai Shun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wilws/docker-7-volume/issues"
+  },
+  "homepage": "https://github.com/wilws/docker-7-volume#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
